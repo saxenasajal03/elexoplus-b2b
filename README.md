@@ -68,4 +68,4 @@ npm install
 npm run dev
 ```
 
-Built with ❤️ for ElexoPlus Dealer & Partner Network.
+Built for ElexoPlus India Pvt Limited.
