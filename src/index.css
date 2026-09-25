@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+@theme {
+  /* Typography matching D2C */
+  --font-sans: 'Nunito', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Custom Color Tokens from D2C */
+  --color-yellow: #FFE614;
+  --color-lightGray: #1E1E1E;
+  --color-primary: #FF6B00;
+  --color-secondary: #1B1B1B;
+  --color-accent-100: #FFE5B4;
+  --color-accent-200: #FFB347;
+  --color-accent-300: #FF8C00;
+
+  /* Extended spacing & container tokens */
+  --container-2xs: 18rem;
+  --width-2xs: 16rem;
+  --width-30: 7.5rem;
+  --height-lg: 28rem;
+
+  /* Keyframe Animations */
+  --animate-fade-in: fadeIn 0.25s ease-out forwards;
+  --animate-slide-up: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-scale-in: scaleIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-float: float 4s ease-in-out infinite;
+
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(8px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideUp {
+    0% { transform: translateY(16px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes scaleIn {
+    0% { transform: scale(0.96) translateY(6px); opacity: 0; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes pulseSlow {
+    0%, 100% { opacity: 0.35; transform: scale(1); }
+    50% { opacity: 0.65; transform: scale(1.04); }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 15px rgba(255, 107, 0, 0.2), 0 0 30px rgba(254, 230, 20, 0.15);
+    }
+    50% {
+      transform: scale(1.02);
+      box-shadow: 0 0 25px rgba(255, 107, 0, 0.35), 0 0 45px rgba(254, 230, 20, 0.25);
+    }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -600px 0; }
+    100% { background-position: 600px 0; }
+  }
+}
+
+/* Base Styles */
+* {
+  font-family: var(--font-sans);
+}
+
+html, body, #root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #18181b;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Scrollbar styling for Light Theme */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f4f4f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Utility Animations */
+.animate-fadeIn {
+  animation: var(--animate-fade-in);
+}
+
+.animate-slideUp {
+  animation: var(--animate-slide-up);
+}
+
+.animate-scaleIn {
+  animation: var(--animate-scale-in);
+}
+
+.animate-float {
+  animation: var(--animate-float);
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #f4f4f5 0%, #e4e4e7 50%, #f4f4f5 100%);
+  background-size: 800px 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+/* Glass & Card Utilities for Light Theme */
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(228, 228, 231, 0.9);
+}
+
+.card-hover-effect {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-hover-effect:hover {
+  border-color: #f59e0b;
+  box-shadow: 0 16px 32px -8px rgba(245, 158, 11, 0.15);
+  transform: translateY(-3px);
+}
+
+.b2b-gradient-text {
+  background: linear-gradient(135deg, #d97706 0%, #ea580c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
